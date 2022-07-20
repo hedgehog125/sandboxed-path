@@ -1,0 +1,12 @@
+{
+	"name": "sandboxed-path",
+	"version": "1.0.0",
+	"description": "A simple package for sandboxing file paths in Node.js",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Nicholas Clack (Hedgehog125)",
+	"license": "GNU GPL v3"
+}
