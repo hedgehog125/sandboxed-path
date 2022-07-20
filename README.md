@@ -1,14 +1,14 @@
 # sanboxed-path
 
-sandboxed-path is a very simple replacement for the built-in path module. It adds a few more methods to the path module to let you sandbox paths.
+sandboxed-path is a very simple replacement for the built-in path module. It adds a few more methods to let you sandbox paths.
 
 # Some things to note
 1. The sandboxing happens when generating paths for accessing files, which you need to do by calling one of the methods. **The sandbox won't do anything if you specify a path to a file system function without first passing it through one of the sandbox functions**.
 
-2. While I've tested it in very basic conditions, it's possible there are bugs that let you escape the sandbox (although unlikely). Be at least somewhat careful.
+2. While I've tested it in very basic conditions, it's possible there are bugs that let you escape the sandbox (although unlikely). You should still be a bit careful when working with files.
 
 # Getting Started
-In many cases, you won't need to configure anything. Just install and import with:
+In many cases, you can just start using the functions and not configure anything. Just install and import with:
 
 ```
 npm install sandboxed-path
@@ -20,7 +20,7 @@ And
 const path = require("sandboxed-path");
 ```
 
-And then to use:
+And then use it a bit like this:
 
 ```js
 // These are all local paths, but the functions produce absolute paths
@@ -46,9 +46,9 @@ path.changeSandboxScope.backOne();
 
 This would then allow you to access everything in your project's folder.
 
-**Warning**: The sandbox scope and base for relative paths are separate. While they are initially the same, you have to modify them individually. In the example above, although a folder up one can now be accessed, the paths are still relative to the folder containing the script that imported the module. See the functions section for how to change the base for relative paths.
+**Warning**: The sandbox scope and base for relative paths are separate. While they are initially the same, you have to modify them individually. In the example above, although a folder up one can now be accessed, the paths are still relative to the folder containing the script that imported the module. See below for how to change the base for relative paths.
 
-You can also independently change where the relative paths are measured from. You'll probably just want to do this with `changeRelativeBasePath.matchSandbox()` but there are some other methods listed in the next section...
+You can also independently change where the relative paths are measured from. You'll probably just want to do this with `path.changeRelativeBasePath.matchSandbox()` but there are some other methods listed in the next section...
 
 # Functions
 * **`sandboxPath(absolutePath : string)`** => sandboxedAbsolutePath : string
@@ -79,4 +79,4 @@ You can also independently change where the relative paths are measured from. Yo
 
     -> **`matchRelative()`/`matchSandbox()`** => void
 
-    changeSandboxScope only has `matchRelative()`, and changeRelativeBasePath only has `matchSandbox()`. Sets them to be equal.
+    changeSandboxScope only has `matchRelative()`, and changeRelativeBasePath only has `matchSandbox()`. Sets them to be equal in a particular direction.
