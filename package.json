@@ -8,5 +8,6 @@
 	},
 	"keywords": [],
 	"author": "Nicholas Clack (Hedgehog125)",
-	"license": "GNU GPL v3"
+	"license": "GNU GPL v3",
+	"type": "module"
 }

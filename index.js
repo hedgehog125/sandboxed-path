@@ -1,10 +1,10 @@
-const path = require("path");
+import path from "path";
 const checkPath = absolutePath => {
     if (! path.isAbsolute(absolutePath)) {
         throw new Error("Path isn't absolute.");
     }
 };
-let relativeBasePath = require.main.path;
+let relativeBasePath = process.cwd();
 let sandboxScope = relativeBasePath;
 
 path.sandboxPath = absolutePath => {
@@ -51,5 +51,4 @@ path.changeRelativeBasePath = {
         relativeBasePath = sandboxScope;
     }
 };
-
-module.exports = path;
+export default path;
