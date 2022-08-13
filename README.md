@@ -17,7 +17,7 @@ npm install sandboxed-path
 And
 
 ```js
-const path = require("sandboxed-path");
+import path from "sandboxed-path";
 ```
 
 And then use it a bit like this:
@@ -80,3 +80,6 @@ You can also independently change where the relative paths are measured from. Yo
     -> **`matchRelative()`/`matchSandbox()`** => void
 
     changeSandboxScope only has `matchRelative()`, and changeRelativeBasePath only has `matchSandbox()`. Sets them to be equal in a particular direction.
+    
+# Updates
+ * 2.0 made it an ES module but didn't add any new features. If you need to use it as an older module, just use 1.0.0.
